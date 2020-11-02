@@ -16,6 +16,7 @@ export default class WeatherData extends React.Component {
         errorMessage : ''
       },
       currentIndex : 0,
+      currentDate : date,
       date,
       dateString : this.getFormattedDate(date)
     }
@@ -103,7 +104,7 @@ export default class WeatherData extends React.Component {
               <h2>Daily Forecast</h2>
               {this.state.daily.map((item,index) => 
                 <div key={index} className='weeklyWeather'>
-                  <span>{this.getDay(this.state.date.getDay() + index)}{index === 0 ? ' (Today)' : null}</span>
+                  <span>{this.getDay(this.state.currentDate.getDay() + index)}{index === 0 ? ' (Today)' : null}</span>
                   <img alt='weather' src={`${this.ICON_URL}${item.weather[0].icon}.png`}></img>
                   <span>{(item.temp.day-273.15).toFixed(1)} &deg;C</span>
                 </div>
