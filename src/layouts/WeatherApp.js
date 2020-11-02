@@ -28,7 +28,7 @@ export default class WeatherApp extends React.Component {
 
   componentDidMount() {
     if ("geolocation" in navigator) {
-      this.setState({error : {errorType : 'locDisabled', errorMessage : 'Location service has been disabled.'}}, ()=>{
+      this.setState({error : {errorType : 'locDisabled', errorMessage : 'Location service is disabled.'}}, ()=>{
         navigator.geolocation.getCurrentPosition((position) => {
           const currentURL = `${this.API_URL}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${this.API_KEY}`;
           fetch(currentURL).then(response => response.json())
