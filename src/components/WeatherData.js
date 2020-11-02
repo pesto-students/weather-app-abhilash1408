@@ -85,11 +85,11 @@ export default class WeatherData extends React.Component {
                   <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'hidden' : 'navigation-button'}>Next <i className='material-icons'>chevron_right</i></span>
                 </div>
               </div>
-              <p>{this.state.dateString}</p>
             </Col>
           </Row>
           <Row>
             <Col md={5}>
+              <p>{this.state.dateString}</p>
               <p>Height From Sea Level : {this.state.misc.altitude ? this.state.misc.altitude : 'Not Available'}</p>
               <p>Wind : {this.state.daily[this.state.currentIndex].wind_speed} m/s, {this.state.daily[this.state.currentIndex].wind_deg} deg</p>
               <p>Rain : {this.state.daily[this.state.currentIndex].rain ? this.state.daily[this.state.currentIndex].rain + ' mm' : 'No Rain'}</p>
@@ -100,6 +100,7 @@ export default class WeatherData extends React.Component {
             } &deg;C</p>
             </Col>
             <Col md={7}>
+              <h2>Daily Forecast</h2>
               {this.state.daily.map((item,index) => 
                 <div key={index} className='weeklyWeather'>
                   <span>{this.getDay(this.state.date.getDay() + index)}{index === 0 ? ' (Today)' : null}</span>
