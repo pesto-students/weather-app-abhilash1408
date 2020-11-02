@@ -113,6 +113,7 @@ export default class WeatherApp extends React.Component {
   }
 
   handleSearch = ()=>{
+    if (!this.state.query) return;
     matchCity(this.state.query).then(results => {
       if (results.length === 0){
         getCities(this.state.query).then(autocompleteResults => {
