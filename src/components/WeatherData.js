@@ -83,8 +83,8 @@ export default class WeatherData extends React.Component {
               <div className='data-title'>
                 <h1>{this.state.misc.name}, {this.state.misc.country}</h1>
                 <div className='navigation'>
-                  <span onClick={this.handlePrevious} className={this.state.currentIndex===0 ? 'hide' : 'navigation-button'}><i className='fa fa-chevron-left'></i></span>
-                  <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'hide' : 'navigation-button'}><i className='fa fa-chevron-right'></i></span>
+                  <span onClick={this.handlePrevious} className={this.state.currentIndex===0 ? 'navigation-button hide' : 'navigation-button'}><i className='fa fa-chevron-left'></i></span>
+                  <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'navigation-button hide' : 'navigation-button'}><i className='fa fa-chevron-right'></i></span>
                 </div>
               </div>
               <p>{this.state.dateString}</p>
