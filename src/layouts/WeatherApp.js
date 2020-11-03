@@ -6,7 +6,7 @@ import WeatherData from '../components/WeatherData';
 
 export default class WeatherApp extends React.Component {
 
-  API_KEY = '*********************';
+  API_KEY = '46b248ee3434060d6bb18bab4011ab5f';
   API_URL = 'https://api.openweathermap.org/data/2.5/';
 
   constructor(props) {
