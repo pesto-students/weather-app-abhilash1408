@@ -2,6 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 export default class WeatherData extends React.Component {
 
@@ -78,18 +79,10 @@ export default class WeatherData extends React.Component {
       {(this.state.isLoading || this.state.searchError) ? null : 
         <>
           <Row>
-            <Col>
+            <Col className='info' md={5}>
               <div className='data-title'>
                 <h1>{this.state.misc.name}, {this.state.misc.country}</h1>
-                <div className='navigation'>
-                  <span onClick={this.handlePrevious} className={this.state.currentIndex===0 ? 'hidden' : 'navigation-button'}><i className='material-icons'>chevron_left</i>Prev</span>
-                  <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'hidden' : 'navigation-button'}>Next <i className='material-icons'>chevron_right</i></span>
-                </div>
               </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={5}>
               <p>{this.state.dateString}</p>
               <p>Height From Sea Level : {this.state.misc.altitude ? this.state.misc.altitude : 'Not Available'}</p>
               <p>Wind : {this.state.daily[this.state.currentIndex].wind_speed} m/s, {this.state.daily[this.state.currentIndex].wind_deg} deg</p>
@@ -101,7 +94,13 @@ export default class WeatherData extends React.Component {
             } &deg;C</p>
             </Col>
             <Col md={7}>
-              <h2>Daily Forecast</h2>
+              <div className='data-title'>
+                <h1>Daily Forecast</h1>
+                <div className='navigation'>
+                  <span onClick={this.handlePrevious} className={this.state.currentIndex===0 ? 'hide' : 'navigation-button'}><i className='fa fa-chevron-left'></i></span>
+                  <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'hide' : 'navigation-button'}><i className='fa fa-chevron-right'></i></span>
+                </div>
+              </div>
               {this.state.daily.map((item,index) => 
                 <div key={index} className='weeklyWeather'>
                   <span>{this.getDay(this.state.currentDate.getDay() + index)}{index === 0 ? ' (Today)' : null}</span>
