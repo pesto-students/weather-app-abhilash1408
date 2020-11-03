@@ -93,9 +93,9 @@ export default class WeatherData extends React.Component {
               <p>Rain : {this.state.daily[this.state.currentIndex].rain ? this.state.daily[this.state.currentIndex].rain + ' mm' : 'No Rain'}</p>
               <p>Humidity : {this.state.daily[this.state.currentIndex].humidity} %</p>
               <p>Temperature : {this.state.currentIndex === 0 ? 
-              `${(this.state.misc.currentTemp - 273.15).toFixed(2)} (Current)`
-              : `${(this.state.daily[this.state.currentIndex].temp.day - 273.15).toFixed(2)} (Day)`
-            } &deg;C</p>
+              `${(this.state.misc.currentTemp - 273.15).toFixed(2)} ${String.fromCharCode(176)}C (Current)`
+              : `${(this.state.daily[this.state.currentIndex].temp.day - 273.15).toFixed(2)} ${String.fromCharCode(176)}C (Day)`
+            }</p>
             </Col>
             <Col md={7}>
               <div className='data-title'>
