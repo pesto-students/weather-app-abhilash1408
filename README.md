@@ -7,4 +7,4 @@ Asks for device location.
 
 Developed with React JS.
 
-Hosted at https://weatheria1408.herokuapp.com/
+Hosted at 
