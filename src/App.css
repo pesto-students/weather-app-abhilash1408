@@ -162,6 +162,20 @@ h1{
   margin : 5px
 }
 
+@media only screen and (max-width: 1400px){
+  .weather-data{
+    background-color: #59D3DF;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding : 10px 20px;
+    padding-bottom: 20px;
+    color: white;
+    border-radius: 6px;
+    z-index: -10;
+  }
+}
+
 @media only screen and (max-width: 650px) and (orientation : landscape) {
   body{
     font-size: 1em;

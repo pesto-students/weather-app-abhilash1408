@@ -8,6 +8,8 @@ export default class WeatherApp extends React.Component {
 
   API_KEY = '46b248ee3434060d6bb18bab4011ab5f';
   API_URL = 'https://api.openweathermap.org/data/2.5/';
+  IP_GEO_API_URL = 'http://ip-api.com/json/';
+  IP_API_URL = 'https://www.cloudflare.com/cdn-cgi/trace';
 
   constructor(props) {
     super(props);
@@ -25,6 +27,13 @@ export default class WeatherApp extends React.Component {
       miscData : {}
     }
   }
+
+  fetchIpLoc = () => {
+    fetch(this.IP_API_URL).then(response => response.json())
+    .then()
+  }
+
+
 
   componentDidMount() {
     if ("geolocation" in navigator) {
@@ -49,6 +58,9 @@ export default class WeatherApp extends React.Component {
               })
             })
           })
+          .catch(err => {
+            // geolocation failed fallback to ip location
+          })
         }, (error)=>{
           console.log(error)
           this.setState({error : { errorType : 'locDisabled', errorMessage : 'Location service has been disabled.'}})
@@ -56,7 +68,8 @@ export default class WeatherApp extends React.Component {
       })
     }
     else {
-      this.setState({error : { errorType : 'locNotFound', errorMessage : 'Location service not found.'}})
+      // no geolocation found fallback to ip location
+      this.setState({error : { errorType : 'locNotFound', errorMessage : 'Location service not found.'}});
     }
     
   }
