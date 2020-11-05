@@ -162,7 +162,7 @@ h1{
   margin : 5px
 }
 
-@media only screen and (max-width: 1400px){
+@media only screen and (max-width: 1600px){
   .weather-data{
     background-color: #59D3DF;
     margin: auto;
