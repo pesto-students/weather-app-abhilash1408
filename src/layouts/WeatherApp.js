@@ -6,7 +6,7 @@ import WeatherData from '../components/WeatherData';
 
 export default class WeatherApp extends React.Component {
 
-  API_KEY = '46b248ee3434060d6bb18bab4011ab5f';
+  API_KEY = '**************';
   API_URL = 'https://api.openweathermap.org/data/2.5/';
   IP_GEO_API_URL = 'http://ip-api.com/json/';
   IP_API_URL = 'https://www.cloudflare.com/cdn-cgi/trace';
@@ -33,9 +33,8 @@ export default class WeatherApp extends React.Component {
     .then()
   }
 
-
-
   componentDidMount() {
+    // seperate geolocation into seperate function
     if ("geolocation" in navigator) {
       this.setState({error : {errorType : 'locDisabled', errorMessage : 'Location service is disabled.'}}, ()=>{
         navigator.geolocation.getCurrentPosition((position) => {
@@ -188,4 +187,5 @@ export default class WeatherApp extends React.Component {
     </>
     );
   }
+
 }
