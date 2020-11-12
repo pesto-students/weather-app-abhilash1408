@@ -9,6 +9,11 @@
   background: #59D3DF;
 }
 
+.suggestion {
+  color: rgb(167, 167, 167);
+  cursor: auto !important;
+}
+
 h1{
   font-size: 2em;
 }

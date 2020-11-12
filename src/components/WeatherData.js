@@ -87,15 +87,16 @@ export default class WeatherData extends React.Component {
                   <span onClick={this.handleNext} className={this.state.currentIndex===7 ? 'navigation-button hide' : 'navigation-button'}><i className='fa fa-chevron-right'></i></span>
                 </div>
               </div>
-              <p>{this.state.dateString}</p>
-              <p>Height From Sea Level : {this.state.misc.altitude ? this.state.misc.altitude : 'Not Available'}</p>
-              <p>Wind : {this.state.daily[this.state.currentIndex].wind_speed} m/s, {this.state.daily[this.state.currentIndex].wind_deg} deg</p>
-              <p>Rain : {this.state.daily[this.state.currentIndex].rain ? this.state.daily[this.state.currentIndex].rain + ' mm' : 'No Rain'}</p>
-              <p>Humidity : {this.state.daily[this.state.currentIndex].humidity} %</p>
+              <p style={{fontSize : '1.2em'}}>{this.state.dateString}</p>
               <p>Temperature : {this.state.currentIndex === 0 ? 
               `${(this.state.misc.currentTemp - 273.15).toFixed(2)} ${String.fromCharCode(176)}C (Current)`
               : `${(this.state.daily[this.state.currentIndex].temp.day - 273.15).toFixed(2)} ${String.fromCharCode(176)}C (Day)`
-            }</p>
+               }</p>
+              {/* <p>Height From Sea Level : {this.state.misc.altitude ? this.state.misc.altitude : 'Not Available'}</p> */}
+              <p>Wind : {this.state.daily[this.state.currentIndex].wind_speed} m/s, {this.state.daily[this.state.currentIndex].wind_deg} deg</p>
+              <p>Rain : {this.state.daily[this.state.currentIndex].rain ? this.state.daily[this.state.currentIndex].rain + ' mm' : 'No Rain'}</p>
+              <p>Humidity : {this.state.daily[this.state.currentIndex].humidity} %</p>
+              
             </Col>
             <Col md={7}>
               <div className='data-title'>

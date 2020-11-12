@@ -6,7 +6,7 @@ import WeatherData from '../components/WeatherData';
 
 export default class WeatherApp extends React.Component {
 
-  API_KEY = '**************';
+  API_KEY = '46b248ee3434060d6bb18bab4011ab5f';
   API_URL = 'https://api.openweathermap.org/data/2.5/';
   IP_GEO_API_URL = 'http://ip-api.com/json/';
   IP_API_URL = 'https://www.cloudflare.com/cdn-cgi/trace';
@@ -147,7 +147,7 @@ export default class WeatherApp extends React.Component {
 
   getListStyle = () => this.state.isLoading || this.state.autocompleteResults.length === 0 ? 'list hidden'  :'list';
 
-  getSuggestionStyle = () => this.state.incompleteSearch? 'list-item' : 'hidden';
+  getSuggestionStyle = () => this.state.incompleteSearch? 'list-item suggestion' : 'hidden';
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -166,7 +166,7 @@ export default class WeatherApp extends React.Component {
           <div className='control'>
             <form onSubmit={this.handleSubmit}>
               <input type='text' value={this.state.query} onChange={this.handleInput} className='search' placeholder='Search City...'></input>
-              <span onClick={this.handleSearch} className="search-button">Search</span>
+              {/* <span onClick={this.handleSearch} className="search-button">Search</span> */}
             </form>
           </div>
           <div className={this.getListStyle()}>
