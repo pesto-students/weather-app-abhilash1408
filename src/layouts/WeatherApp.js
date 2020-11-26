@@ -33,10 +33,9 @@ export default class WeatherApp extends React.Component {
     .then()
   }
 
-  componentDidMount() {
-    // seperate geolocation into seperate function
+  getGeoData = () => {
     if ("geolocation" in navigator) {
-      this.setState({error : {errorType : 'locDisabled', errorMessage : 'Location service is disabled.'}}, ()=>{
+      this.setState({error : {errorType : 'locInactive', errorMessage : 'Location service is disabled.'}}, ()=>{
         navigator.geolocation.getCurrentPosition((position) => {
           const currentURL = `${this.API_URL}weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${this.API_KEY}`;
           fetch(currentURL).then(response => response.json())
@@ -70,6 +69,11 @@ export default class WeatherApp extends React.Component {
       // no geolocation found fallback to ip location
       this.setState({error : { errorType : 'locNotFound', errorMessage : 'Location service not found.'}});
     }
+  }
+
+  componentDidMount() {
+    // seperate geolocation into seperate function
+    this.getGeoData();
     
   }
 
@@ -183,6 +187,7 @@ export default class WeatherApp extends React.Component {
         misc = {this.state.miscData}
         daily  = {this.state.dailyWeatherData}
         error = {this.state.error}
+        geo = {this.getGeoData}
         />
     </>
     );

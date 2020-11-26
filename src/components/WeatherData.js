@@ -68,13 +68,17 @@ export default class WeatherData extends React.Component {
     return this.state.error.errorType !=='none' ? 'error' : 'hidden'
   }
 
+  handleGeo = () => {
+    this.props.geo();
+  }
+
   render() {
     return (
     <>
     <Container className='weather-data' >
       <div className={this.getLoaderClass()}></div>
       <div className={this.getErrorClass()}>
-        <h1>{this.state.error.errorMessage}</h1>
+      <h1 className='errorMessage'>{this.state.error.errorMessage} {this.state.error.errorType === 'locDisabled' ? <span onClick={this.handleGeo} className='primaryButton'>Enable location</span> : null}</h1>
       </div>
       {(this.state.isLoading || this.state.searchError) ? null : 
         <>

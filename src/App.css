@@ -14,6 +14,21 @@
   cursor: auto !important;
 }
 
+.errorMessage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.primaryButton {
+  font-size: 0.5em;
+  background-color: #FDE5E5;
+  color: black;
+  border-radius: 6px;
+  padding: 7px;
+  cursor: pointer;
+}
+
 h1{
   font-size: 2em;
 }
@@ -171,9 +186,9 @@ h1{
   .weather-data{
     background-color: #59D3DF;
     margin: auto;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    padding : 10px 20px;
+    margin-top: 150px;
+    margin-bottom: 80px;
+    padding : 30px 20px;
     padding-bottom: 20px;
     color: white;
     border-radius: 6px;
